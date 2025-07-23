@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
 public class AuthorDTO {
 
     private Integer id;
-    private String name, lastName, phone;
+    private String name, lastName;
 
     public AuthorDTO(Author p_author) {
         this.id = p_author.getId();
         this.name = p_author.getName();
         this.lastName = p_author.getLastName();
-        this.phone = p_author.getPhone();
+        /*this.phone = p_author.getPhone();*/
     }
 }

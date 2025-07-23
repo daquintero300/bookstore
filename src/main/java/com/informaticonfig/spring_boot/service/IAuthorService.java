@@ -11,6 +11,8 @@ public interface IAuthorService {
 
     public Optional<Author> findAuthorById(Integer id);
 
+    public Author updateAuthor(Integer id, Author author);
+
     public Author saveAuthor(Author author);
 
     public void deleteAuthorById(Integer id);

@@ -26,6 +26,13 @@ public class AuthorService implements IAuthorService{
     }
 
     @Override
+    public Author updateAuthor(Integer id,Author author) {
+        Author authorExist = authorRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Author no exist" + id));
+        return authorRepository.save(authorExist);
+    }
+
+    @Override
     public Author saveAuthor(Author author) {
         return (Author) authorRepository.save(author);
     }

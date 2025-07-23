@@ -3,6 +3,7 @@ package com.informaticonfig.spring_boot.service;
 import com.informaticonfig.spring_boot.entity.Book;
 import com.informaticonfig.spring_boot.repository.BooksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,6 +23,13 @@ public class BookService implements IBookService{
     @Override
     public Optional<Book> findBookById(Integer id) {
         return booksRepository.findById(id);
+    }
+
+    @Override
+    public Book updateBook(Integer id, Book book) {
+        Book bookExist = booksRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Book no exist" + id));
+        return booksRepository.save(bookExist);
     }
 
     @Override

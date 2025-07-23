@@ -11,6 +11,8 @@ public interface IBookService {
 
     public Optional<Book> findBookById(Integer id);
 
+    public Book updateBook(Integer id, Book book);
+
     public Book saveBook(Book book);
 
     public void deleteBookById(Integer id);
